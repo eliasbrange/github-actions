@@ -1,4 +1,4 @@
-name: DevStageProdPipeline
+name: 1. DevStageProdPipeline
 
 on:
   push:
