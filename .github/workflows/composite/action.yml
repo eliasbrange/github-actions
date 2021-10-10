@@ -1,0 +1,15 @@
+name: 'Composite Test Action'
+description: 'A test action'
+
+inputs:
+  param:
+    description: 'An input param'
+    required: true
+    default: 'default'
+runs:
+  using: "composite"
+  steps:
+    - run: echo Your param is ${{ inputs.param }}.
+      shell: bash
+    - run: echo Another echo
+      shell: bash
