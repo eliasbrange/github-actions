@@ -1,0 +1,15 @@
+name: "Api Test Action"
+description: "Runs API Tests against the given environment"
+
+inputs:
+  environment:
+    description: "Environment to test against (dev/stage/prod)"
+    required: true
+    default: "dev"
+runs:
+  using: "composite"
+  steps:
+    - run: echo Installing test dependencies.
+      shell: bash
+    - run: echo Testing ${{ inputs.environment }}.
+      shell: bash

@@ -1,0 +1,17 @@
+name: "Deploy Action"
+description: "Deploys to the given environment"
+
+inputs:
+  environment:
+    description: "Environment to deploy to (dev/stage/prod)"
+    required: true
+    default: "dev"
+runs:
+  using: "composite"
+  steps:
+    - run: echo Installing deployment dependencies.
+      shell: bash
+    - run: echo Deploying to ${{ inputs.environment }}.
+      shell: bash
+    - run: echo Deployment to ${{ inputs.environment }} done.
+      shell: bash
