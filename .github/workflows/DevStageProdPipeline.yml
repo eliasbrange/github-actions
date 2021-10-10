@@ -19,7 +19,7 @@ jobs:
     needs: [build]
     steps:
       - uses: actions/checkout@v2
-      - name: Test
+      - name: UnitTest
         run: echo Unit tests...
         
   lint:
@@ -27,7 +27,7 @@ jobs:
     needs: [build]
     steps:
       - uses: actions/checkout@v2
-      - name: Test
+      - name: Lint
         run: echo Linting...
         
   deploy-dev:
@@ -65,19 +65,19 @@ jobs:
       - name: Test
         run: echo Testing stage...
         
-  deploy-prod:
+  deploy-production:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'release' && github.event.action == 'published' }}
     needs: [test-stage]
-    environment: prod
+    environment: production
     steps:
       - uses: actions/checkout@v2
       - name: Deploy
         run: echo Deploying to prod
         
-  test-prod:
+  test-production:
     runs-on: ubuntu-latest
-    needs: [deploy-prod]
+    needs: [deploy-production]
     steps:
       - uses: actions/checkout@v2
       - name: Test
