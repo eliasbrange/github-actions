@@ -4,10 +4,11 @@ on:
 
 jobs:
   job:
+    env:
+      MY_ENV_VAR: value
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/composite
         with:
           param: testparam
-        

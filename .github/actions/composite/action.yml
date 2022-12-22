@@ -1,15 +1,17 @@
-name: 'Composite Test Action'
-description: 'A test action'
+name: "Composite Test Action"
+description: "A test action"
 
 inputs:
   param:
-    description: 'An input param'
+    description: "An input param"
     required: true
-    default: 'default'
+    default: "default"
 runs:
   using: "composite"
   steps:
     - run: echo Your param is ${{ inputs.param }}.
       shell: bash
-    - run: echo Another echo
+    - run: echo Another echo ${{ env.MY_ENV_VAR }}
+      shell: bash
+    - run: env
       shell: bash
