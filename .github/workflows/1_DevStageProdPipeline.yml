@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: sleep 5
       - name: Build
         run: echo Building...
         
@@ -19,6 +20,7 @@ jobs:
     needs: [build]
     steps:
       - uses: actions/checkout@v2
+      - run: sleep 5
       - name: UnitTest
         run: echo Unit tests...
         
@@ -27,6 +29,7 @@ jobs:
     needs: [build]
     steps:
       - uses: actions/checkout@v2
+      - run: sleep 5
       - name: Lint
         run: echo Linting...
         
@@ -36,6 +39,7 @@ jobs:
     environment: development
     steps:
       - uses: actions/checkout@v2
+      - run: sleep 10
       - name: Deploy
         run: echo Deploying to dev...
         
@@ -44,6 +48,7 @@ jobs:
     needs: [deploy-dev]
     steps:
       - uses: actions/checkout@v2
+      - run: sleep 5
       - name: Test
         run: echo Testing dev...
         
