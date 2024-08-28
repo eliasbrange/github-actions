@@ -5,4 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: cr
     steps:
-      - run: echo "approval"`
+      - name: Retrieve approval comment
+        run: |
+          echo "Approval comment: ${{ github.event.comment.body }}"
