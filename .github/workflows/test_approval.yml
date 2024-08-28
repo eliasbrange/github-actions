@@ -1,0 +1,8 @@
+on: [workflow_dispatch]
+
+jobs:
+  approval:
+    runs-on: ubuntu-latest
+    environment: cr
+    steps:
+      - run: echo "approval"`
