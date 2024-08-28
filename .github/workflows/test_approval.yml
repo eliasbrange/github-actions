@@ -7,9 +7,9 @@ jobs:
     steps:
       - name: Retrieve approval comment
         run: |
-          echo "Approval comment: ${{ github.event }}"
+          echo ${{ toJson(github) }}
 
 
       - name: github
         run: |
-          echo "${{ github }}"
+          echo ${{ toJson(github) }}
