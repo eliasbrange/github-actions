@@ -5,11 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: cr
     steps:
-      - name: Retrieve approval comment
+      - name: Hello
         run: |
-          echo ${{ toJson(github) }}
-
-
-      - name: github
-        run: |
-          echo ${{ toJson(github) }}
+          echo hello
