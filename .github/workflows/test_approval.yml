@@ -7,11 +7,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo hello
-      
-  approval:
+
+  cr:
+    runs-on: ubuntu-latest
+    environment: cr
+    steps:
+      - run: echo hello
+  
+  prod:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - name: Hello
-        run: |
-          echo hello
+      - run: echo hello
