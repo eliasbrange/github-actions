@@ -1,9 +1,16 @@
+name: Test approval
 on: [workflow_dispatch]
 
+
 jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo hello
+      
   approval:
     runs-on: ubuntu-latest
-    environment: cr
+    environment: production
     steps:
       - name: Hello
         run: |
