@@ -3,13 +3,30 @@ on: [workflow_dispatch]
 
 
 jobs:
-  hello:
+  deploy-test:
     runs-on: ubuntu-latest
+    environment: test
+    steps:
+      - run: echo hello
+
+  
+  deploy-iot1:
+    runs-on: ubuntu-latest
+    needs: deploy-test
+    environment: iot1
     steps:
       - run: echo hello
       
-  prod:
+  deploy-qa:
     runs-on: ubuntu-latest
-    environment: production
+    needs: deploy-iot1
+    environment: qa
+    steps:
+      - run: echo hello
+      
+  deploy-prod:
+    runs-on: ubuntu-latest
+    needs: deploy-qa
+    environment: prod
     steps:
       - run: echo hello
